@@ -28,3 +28,18 @@ def correction_factor_given_radex_table(input_table, indices_of_observed_states,
     return f_c
 
 
+def correction_factor_given_myradex_output(f_occupations, indices_of_observed_states, included_levels=np.inf):
+    """ Takes a `myradex` output array and does the correction-factor magic on it. """
+
+    Nlower_array = f_occupations
+    Nupper_array = Nlower_array[1:]
+
+    top_level = min(included_levels, len(f_occupations))
+
+    total_population = np.sum(Nlower_array[:top_level])
+    observed_population = np.sum(Nupper_array[indices_of_observed_states])
+
+    fraction_observed = observed_population/total_population
+    f_c = 1/fraction_observed
+
+    return f_c
