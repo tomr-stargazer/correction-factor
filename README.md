@@ -6,3 +6,5 @@ The backend will really just be making RADEX calls and then doing some simple ma
 I'll probably need to think carefully and usefully about how I will handle different molecules.
 
 I anticipate using the `pyradex` package for the serious calculations.
+
+I'll try to make it python3 compatible.
